@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../constants/app_constants.dart';
 
 class SmoothCard extends StatefulWidget {
@@ -39,12 +40,12 @@ class _SmoothCardState extends State<SmoothCard>
   @override
   void initState() {
     super.initState();
-    
+
     _animationController = AnimationController(
       duration: widget.animationDuration,
       vsync: this,
     );
-    
+
     _scaleAnimation = Tween<double>(
       begin: 1.0,
       end: 0.98,
@@ -52,7 +53,7 @@ class _SmoothCardState extends State<SmoothCard>
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
-    
+
     _elevationAnimation = Tween<double>(
       begin: widget.elevation,
       end: widget.elevation * 2,
@@ -110,7 +111,7 @@ class _SmoothCardState extends State<SmoothCard>
   @override
   Widget build(BuildContext context) {
     final backgroundColor = widget.backgroundColor ?? AppColors.surface;
-    
+
     Widget card = Container(
       margin: widget.margin,
       child: widget.animate
@@ -169,7 +170,7 @@ class _SmoothCardState extends State<SmoothCard>
         ),
       );
     }
-    
+
     return card;
   }
 }
